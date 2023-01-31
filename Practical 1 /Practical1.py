@@ -95,3 +95,24 @@ df = df.dropna(subset=['date'])
 df['price'].fillna(value=np.round(df.price.mean(),decimals=2),inplace=True)
 
 print(df.head())
+
+max_user_id = df.user_id.value_counts().index[0]
+df[df.user_id == max_user_id][['price']].plot(style='blue')
+plt.title('Price Trends for Particular User')
+plt.show()
+
+
+df[['purchase_week','quantity_purchased']].groupby('purchase_week').sum().plot.barh(color="green")
+plt.title("Quantities Purchased per week")
+plt.show()
+
+df.price.hist(color='red')
+plt.title('Price Distribution')
+plt.show()
+
+
+class_series = df.groupby('user_class').size()
+class_series.name = 'User Class Distribution'
+class_series.plot.pie(autopct='%.2f')
+plt.title('User Class Share')
+plt.show()
