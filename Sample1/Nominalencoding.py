@@ -10,3 +10,12 @@ df = pd.read_csv("cluster_mpg.csv")
 #display first 5 rows
 
 print(df.head())
+
+label_encoder = preprocessing.LabelEncoder()
+label_encoder.fit(df["origin"])
+
+print(list(label_encoder.classes_))
+print()
+
+print(label_encoder.transform(df["origin"]))
+
