@@ -11,4 +11,4 @@ genre_labels = gle.fit_transform(vg_df['Genre'])
 genre_mappings = {index:label for index,label in enumerate(gle.classes_)}
 print(genre_mappings)
 vg_df['GenreLabel'] = genre_labels
-print(vg_df[['Name','Platform','Year','Genre','GenreLabel']].iloc[1:7])
+print(vg_df[['Name','Platform','Year','Genre','GenreLabel']].iloc[1:16000])
