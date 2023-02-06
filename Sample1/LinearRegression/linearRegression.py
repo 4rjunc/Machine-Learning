@@ -34,11 +34,27 @@ print(mymodel)
 mymodel = mymodel.fit(x,y)
 print(mymodel)
 
-y = mymodel.predict(x)
-print(y)
+pred = mymodel.predict(x)
+print(pred)
 
 print(mymodel.coef_)
 
 print(mymodel.intercept_)
 
 #model accuracy-R Square value
+rsq = mymodel.score(x,y)
+print(rsq)
+
+round(rsq*100,2)
+
+mse = mean_squared_error(y,pred)
+print(mse)
+
+import math as mymath
+rmse = mymath.sqrt(mse)
+print(rmse)
+
+#Residual Analysis
+
+res = y- pred
+print(res)
