@@ -44,7 +44,7 @@ mytable = mypd.crosstab(y,predclass)
 print(mytable)
 
 
-predprob = mypd.DataFrame(predprob, columns=["Predicted 0","Predicted = 1","Predicted = 2"])
+predprob = mypd.DataFrame(preprob, columns=["Predicted 0","Predicted = 1","Predicted = 2"])
 print(predprob)
 
 predclass = mypd.DataFrame(predclass,columns=["Predicate Class"])
@@ -63,4 +63,16 @@ myresult = myresult.join(predprob)
 print(round(myresult.head(15),4))
 
 myscore = cross_val_score(mymodel,x ,y,scoring='accuracy',cv = 5)
+print(myscore)
+
+cv_accuracy = myscore.mean()
+round(cv_accuracy*100,2)
+
+mymatrix = confusion_matrix(y, predclass)
+print(mymatrix)
+
+myreport = classification_report(y, predclass)
+print(myreport)
+
+myscore = cross_val_score(mymodel,x,y,scoring='accuracy',cv = 5)
 print(myscore)
