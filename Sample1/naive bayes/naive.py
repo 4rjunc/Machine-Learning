@@ -1,8 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as pyplot
 import pandas as mypd
-from sklearn.metrics import confusion_matrix
-
+from sklearn.metrics import confusion_matrix,accuracy_score
 
 mydata = mypd.read_csv("./Iris_data.csv")
 
@@ -22,4 +21,9 @@ classifier = GaussianNB()
 classifier.fit(X_train, Y_train)
 Y_pred = classifier.predict(X_test)
 print(Y_pred)
-print(confusion_matrix(Y_test, Y_pred))
+mymatrix = confusion_matrix(Y_test, Y_pred)
+print(mymatrix)
+
+acc = accuracy_score(Y_pred, Y_test)
+print(round(acc*100,2))
+
