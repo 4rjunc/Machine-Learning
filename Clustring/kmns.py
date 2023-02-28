@@ -45,6 +45,19 @@ ax2.scatter(Y[:,0],Y[:,1], c = datas['diagnosis'], cmap = "jet",edgecolor="None"
 ax2.set_title('Actual cluster')
 
 
+from sklearn.cluster import AgglomerativeClustering
+
+aggC = AgglomerativeClustering(n_clusters = 2,linkage='ward')
+kY = aggC.fit_predict(X)
+
+f,(ax1,ax2) = plt.subplots(1, 2, sharey=True)
+
+ax1.scatter(Y[:,0],Y[:,1], c=kY,cmap = "jet",edgecolor = "None", alpha=0.35)
+ax1.set_title('Hierarchial clustering plot')
+
+ax2.scatter(Y[:,0],Y[:,1], c = datas['diagnosis'], cmap = "jet", edgecolor="None", alpha=0.35)
+ax2.set_title('Actual clusters')
+
 
 
 
