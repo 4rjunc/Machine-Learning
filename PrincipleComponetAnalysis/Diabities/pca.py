@@ -26,3 +26,20 @@ def PCA(X, num_components):
 import pandas as mypd
 mydata = mypd.read_csv("./Iris_data.csv")
 print(mydata)
+
+#Prepare the data
+x = mydata.iloc[:,0:4]
+
+#prepare the target
+
+target = mydata.iloc[:,4]
+
+#Applying it to PCA Function
+mat_reduced = PCA(x, 2)
+
+#Creating a Pandas DataFrame of reduced Dataset
+principal_df = mypd.DataFrame(mat_reduced, columns=['PC1','PC2'])
+
+#Concat it with target variable to create a complete Dataset
+principal_df = mypd.concat([principal_df , mypd.DataFrame(target)], axis = 1)
+print(principal_df)
