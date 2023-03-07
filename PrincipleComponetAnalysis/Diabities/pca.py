@@ -23,3 +23,6 @@ def PCA(X, num_components):
     
     return X_reduced
     
+import pandas as mypd
+mydata = mypd.read_csv("./Iris_data.csv")
+print(mydata)
