@@ -17,7 +17,7 @@ scaled_data = mypd.DataFrame(scaler.fit_transform(mydata))
 print(scaled_data)
 mysb.heatmap(scaled_data.corr())
 
-
+#Outputs in .ipynb file
 from sklearn.decomposition import PCA
 pca = PCA(n_components = 2)
 pca.fit(mydata)
